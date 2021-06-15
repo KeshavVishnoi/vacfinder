@@ -3,8 +3,8 @@ const Slot = props => {
 
     const slots = props.slots;
     if(slots.length === 0 && props.isData === true){
-        // console.log(slots);
-        return <h2 className="no-avail">No Centers Available, Search for another date</h2>
+        
+        return <h2 className="no-avail">No Centres Available, Search for another date</h2>
     }
 
     if (props.isData){
@@ -19,8 +19,8 @@ const Slot = props => {
              return(
                  
                  <div key={index}>
-                        <h5><span className="normal-icon"></span> Center Name : {slot.name }</h5> 
-                       <h5><span className="address-icon"></span> Center Address : {slot.address}</h5> 
+                        <h5><span className="normal-icon"></span> Centre Name : {slot.name }</h5> 
+                       <h5><span className="address-icon"></span> Centre Address : {slot.address}</h5> 
                         <h5><span className="normal-icon"></span> State : {slot.state_name}</h5> 
                         <h5><span className="normal-icon"></span> District : {slot.district_name}</h5> 
                         <h5><span className="pin-icon"></span> Pin Code : {slot.pincode} </h5> 
@@ -39,18 +39,6 @@ const Slot = props => {
          }
          </div>
 
-            {/*            
-            <div>
-               <h5>Center ID : </h5> 
-               <h5>Center Address : </h5> 
-               <h5>State : </h5> 
-               <h5>District : </h5> 
-               <h5>Pin Code : </h5> 
-               <h5>Vaccine : </h5> 
-               <h5>Min Age : </h5> 
-               <h5>Fee : </h5> 
-
-            </div> */}
             
             </>
         

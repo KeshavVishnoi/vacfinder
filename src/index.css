@@ -17,7 +17,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #333;
   height: 100vh;
-  
+  /* font-size: 13px; */
 }
 
 .root{
@@ -363,6 +363,9 @@ input {
 
 /* Media */
 @media (max-width : 500px){
+   /* body{
+     /* font-size: 14px !important; 
+   } */
   .container{
     max-width: none;
     width: 100%;
@@ -398,6 +401,19 @@ input {
   .navigation .tagline {
     margin-left: 1rem;
   }
+
+  .input-container > * 
+   {
+    /* height: 55em; */
+    font-size: .85rem;
+  }
+
+  .input-container > label {
+    color: rgba(42, 82, 42, 0.89);
+    font-size: 1rem;
+  }
+
+  #footer #footer-info {font-size: 1rem;}
 }
 
 

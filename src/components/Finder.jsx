@@ -13,12 +13,12 @@ const Finder = props => {
     
     useEffect( () => {
         const source = Axios.CancelToken.source();
-        // if(states !== null )document.getElementById("states").value = states[0];
+       
         const getStates = async url => {
             try{
             const data = await axios(url , {cancelToken : source.token});
             setStates(data.data.states);
-            // console.log(data.data);
+            
             }catch(error) {
                 if(Axios.isCancel(error))
                 console.log(error);
@@ -33,12 +33,12 @@ const Finder = props => {
         }
     },[]);
 
-    useEffect(() => { // sets District
+    useEffect(() => { 
         const district = document.getElementById("districts").value;
         setDistrict(district);
     },[districts]);
 
-    useEffect(() => { //sets districts to first State's value
+    useEffect(() => { 
         const source = Axios.CancelToken.source();
         const states = document.getElementById("states").value;
         
@@ -60,7 +60,7 @@ const Finder = props => {
             console.log(error);
             else throw error;
         }
-        // console.log(data.data.districts);
+        
     }
 
     const printStates = () => {
@@ -89,12 +89,11 @@ const Finder = props => {
         return [];
     }
 
-     // tests
+     
     const fetchDistricts = async event => {
-        // event.preventDefault();
+        
         const district_id = event.target.value;
-        // alert(event.target.value );
-        // console.log(event.target.value);
+        
         getDistricts("https://cdn-api.co-vin.in/api/v2/admin/location/districts/" + district_id);
         
 
@@ -114,14 +113,13 @@ const Finder = props => {
         event.preventDefault();
         const finalDate = formatDate (date.current.value); // "18/01/10";
         const data = await axios(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id=${district}&date=${finalDate }`);
-        // console.log(data.data);
+        
         if(data.data.sessions.length > 0){
             setSlots(data.data.sessions);
         }
         setRenderSlot(true);
         
-        // console.log(date.current.value);
-        // console.log(event.target);
+        
     }
 
     const setDate = () => {
@@ -160,7 +158,7 @@ const Finder = props => {
                 
                 <label htmlFor="date">Choose Date</label>
                 <input ref={date} min= {setDate()} defaultValue= {setDate()} type="date" name="date" id="date"  required  disabled/>
-                <button type="submit" className="btn btn-find"> <span className="search-icon"></span> Find Center By State</button>
+                <button type="submit" className="btn btn-find"> <span className="search-icon"></span> Find Centre By State</button>
             </div>
         </form>
         

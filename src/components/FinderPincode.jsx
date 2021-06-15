@@ -18,11 +18,11 @@ const FinderPincode = () => {
         today = yyyy+'-'+mm+'-'+dd;
         return today;
     }
-    // const [districts, setDistricts] = useState(null);
+   
     const [slots, setSlots] = useState([]);
     const [renderSlot, setRenderSlot] = useState(false);
     const url = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?`;
-    // https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=461331&date=15-06-2021
+    
 
     const date = useRef();
     const pin_code = useRef();
@@ -35,14 +35,13 @@ const FinderPincode = () => {
             if(pin_code.current.value.length < 6) throw new Error(pin_min_msg);
             const data = await axios(url + ('pincode='+ pin_code.current.value + '&date=' + formatDate(date.current.value)));
         console.log(data.data);
-        // setSlots(data.data.sessions);
-        // if(data.data.sessions.length > 0) setRenderSlot(true);
+        
         if(data.data.sessions.length > 0){
             setSlots(data.data.sessions);
         }
         setRenderSlot(true);
         }catch(error) {
-            // console.log(error.message);
+            
             if(error.message === pin_min_msg) alert("Pin must be 6 digits long") ;
             else if(error.response.status === 400) alert("Please enter Valid Pin Code");
            
@@ -70,7 +69,7 @@ const FinderPincode = () => {
 
                 <label htmlFor="date">Choose Date</label>
                 <input ref={date} min= {setDate()} defaultValue= {setDate()} type="date" name="date" id="date"  required  />
-                <button type="submit" className="btn btn-find"> <span className="search-icon"></span> Find Center By PinCode</button>
+                <button type="submit" className="btn btn-find"> <span className="search-icon"></span> Find Centre By PinCode</button>
                
             </div>
         </form>
