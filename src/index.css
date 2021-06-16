@@ -1,18 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
-
-
-
 body {
-
-    font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #333;
@@ -20,7 +15,7 @@ body {
   /* font-size: 13px; */
 }
 
-.root{
+.root {
   height: 100%;
 }
 
@@ -32,12 +27,12 @@ body {
   align-items: center;
   position: relative;
   height: 100%;
- 
+
   /* background-size: 100% 100%; */
   /* background-position: bottom; */
 }
 
-.bga{
+.bga {
   position: absolute;
   background: url(./img/bgnew.svg);
   background-position: center;
@@ -65,10 +60,11 @@ a {
 
 /* New */
 
-.select-menu, #date  {
-  padding: .75rem;
+.select-menu,
+#date {
+  padding: 0.75rem;
   outline: none;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   background: #333;
   color: whitesmoke;
   cursor: pointer;
@@ -96,11 +92,11 @@ a {
 }
 
 .input-container > * {
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   font-size: 1.1rem;
   /* max-width: 15rem; */
   width: 20rem;
-  transition: background .5s ease;
+  transition: background 0.5s ease;
 }
 
 .input-container label {
@@ -110,9 +106,9 @@ a {
 }
 
 .input-container #pincode {
-  padding: .75rem;
+  padding: 0.75rem;
   outline: none;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   background: #333;
   color: whitesmoke;
   outline: none;
@@ -128,9 +124,9 @@ a {
   font-family: Arial, Helvetica, sans-serif;
 }
 
- select:focus,
- #date:focus,
- #pincode:focus{
+select:focus,
+#date:focus,
+#pincode:focus {
   background: rgb(32, 6, 6);
 }
 
@@ -147,7 +143,7 @@ input {
   cursor: pointer;
   padding: 1rem;
   width: 10rem;
-  transition: background .6s ease;
+  transition: background 0.6s ease;
 }
 
 .btn-find {
@@ -155,33 +151,32 @@ input {
   margin-top: 1.5rem;
   background: rgba(168, 165, 167, 0.75);
   color: rgb(0, 0, 0);
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   outline: none;
   border: none;
 }
 
-.btn-find:hover{
+.btn-find:hover {
   background: rgba(129, 127, 129, 0.75);
   color: rgb(17, 13, 13);
-
-} 
+}
 /* Final Changes */
 
 .navigation {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   /* flex-direction: row; */
-   height: 5rem;
-   width: 100vw;
-   padding: 1.5rem;
-   background: #333;
-   color: whitesmoke;
-   margin: auto;
-   width: 100%;
-   box-shadow: -2px 13px 16px 4px rgba(62,33,33,0.75);
-  -webkit-box-shadow: -2px 13px 16px 4px rgba(62,33,33,0.75);
-  -moz-box-shadow: -2px 13px 16px 4px rgba(62,33,33,0.75);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* flex-direction: row; */
+  height: 5rem;
+  width: 100vw;
+  padding: 1.5rem;
+  background: #333;
+  color: whitesmoke;
+  margin: auto;
+  width: 100%;
+  box-shadow: -2px 13px 16px 4px rgba(62, 33, 33, 0.75);
+  -webkit-box-shadow: -2px 13px 16px 4px rgba(62, 33, 33, 0.75);
+  -moz-box-shadow: -2px 13px 16px 4px rgba(62, 33, 33, 0.75);
 }
 
 .navigation .btn-find {
@@ -196,7 +191,7 @@ input {
 
 .tagline {
   font-size: 1.3rem;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: 100;
 }
 
@@ -204,7 +199,7 @@ input {
   margin-left: 2rem;
 }
 
-.container{
+.container {
   max-width: 50rem;
   /* max-width: none; */
   width: 48rem;
@@ -214,7 +209,6 @@ input {
   margin: 0 auto;
   /* width: 40rem; */
 }
-
 
 /* slots section */
 
@@ -227,7 +221,7 @@ input {
   padding: 1.1rem;
 }
 
-.slot  > * {
+.slot > * {
   width: 20rem;
   padding: 1.5rem;
   border: 1px solid #333;
@@ -237,20 +231,20 @@ input {
   text-align: left;
   line-height: 1.6;
   font-size: 1.2rem;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   background: #333;
   color: whitesmoke;
   /* margin: auto; */
   /* width: 100%; */
-  box-shadow: -3px -7px 23px 2px  rgba(133, 131, 132, 0.75) ;
--webkit-box-shadow: -3px -7px 23px 2px rgba(136, 132, 134, 0.75) ;
--moz-box-shadow: -3px -7px 23px 2px rgba(136, 136, 136, 0.75) ;
+  box-shadow: -3px -7px 23px 2px rgba(133, 131, 132, 0.75);
+  -webkit-box-shadow: -3px -7px 23px 2px rgba(136, 132, 134, 0.75);
+  -moz-box-shadow: -3px -7px 23px 2px rgba(136, 136, 136, 0.75);
 }
 
-.slot  > *:hover {
-  box-shadow: -3px -7px 23px 2px  rgba(0, 0, 0, 0.75) ;
-  -webkit-box-shadow: -3px -7px 23px 2px rgba(0, 0, 0, 0.75) ;
-  -moz-box-shadow: -3px -7px 23px 2px rgba(0, 0, 0, 0.75) ;
+.slot > *:hover {
+  box-shadow: -3px -7px 23px 2px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: -3px -7px 23px 2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -3px -7px 23px 2px rgba(0, 0, 0, 0.75);
   /* border: 1px solid #fff; */
 }
 
@@ -274,7 +268,7 @@ input {
   font-family: "Font Awesome 5 Free";
   font-weight: 600;
   content: "\f5a0";
-  font-size: .75rem;
+  font-size: 0.75rem;
 }
 
 .normal-icon::before {
@@ -284,7 +278,6 @@ input {
   font-size: 1rem;
 }
 
-
 .pin-icon::before {
   font-family: "Font Awesome 5 Free";
   font-weight: 600;
@@ -292,26 +285,26 @@ input {
   font-size: 1rem;
 }
 
-.syringe--icon::before{
-  font-size: .7rem;
+.syringe--icon::before {
+  font-size: 0.7rem;
 }
 
 .fee-icon::before {
   font-family: "Font Awesome 5 Free";
   font-weight: 600;
   content: "\f156";
-  font-size: .75rem;
+  font-size: 0.75rem;
 }
 
-.avail-icon::before{
+.avail-icon::before {
   font-family: "Font Awesome 5 Free";
   font-weight: 600;
-  font-size: .75rem;
+  font-size: 0.75rem;
   content: "\f128";
 }
 
 .slot span {
-  margin-right: .5rem;
+  margin-right: 0.5rem;
   color: rgb(89, 190, 156);
 }
 
@@ -319,26 +312,28 @@ input {
 #footer {
   /* position: static;
   bottom: 0; */
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
   height: 3.5rem;
-  padding:  3rem;
+  padding: 3rem;
   background: #333;
   color: whitesmoke;
   line-height: 1.3;
 }
 
-#footer a{
+#footer a {
   color: rgb(151, 103, 126);
   font-size: 1.2rem;
-  margin-left: .4rem;
+  margin-left: 0.4rem;
 }
 
-#footer #footer-info {font-size: 1.3rem;}
+#footer #footer-info {
+  font-size: 1.3rem;
+}
 
 #my-info > span {
   color: rgb(143, 32, 37);
@@ -351,7 +346,6 @@ input {
   margin-bottom: 1rem;
 }
 
-
 #centres {
   width: 100%;
   background: #333;
@@ -362,11 +356,11 @@ input {
 }
 
 /* Media */
-@media (max-width : 500px){
-   /* body{
+@media (max-width: 500px) {
+  /* body{
      /* font-size: 14px !important; 
    } */
-  .container{
+  .container {
     max-width: none;
     width: 100%;
     justify-content: space-between;
@@ -379,16 +373,16 @@ input {
     font-size: 1.3rem;
   }
   .bga {
-    background: url('./img/bgmobile.svg');
+    background: url("./img/bgmobile.svg");
     height: 80vh;
     width: 90vw;
     /* background-position: center; */
-   
-  background-repeat: no-repeat;
-  background-size: cover;
+
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
-  .tagline{
+  .tagline {
     font-size: 1rem;
   }
   .no-avail {
@@ -402,10 +396,9 @@ input {
     margin-left: 1rem;
   }
 
-  .input-container > * 
-   {
+  .input-container > * {
     /* height: 55em; */
-    font-size: .85rem;
+    font-size: 0.85rem;
   }
 
   .input-container > label {
@@ -413,8 +406,7 @@ input {
     font-size: 1rem;
   }
 
-  #footer #footer-info {font-size: 1rem;}
+  #footer #footer-info {
+    font-size: 1rem;
+  }
 }
-
-
-
