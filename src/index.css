@@ -239,6 +239,7 @@ input {
   box-shadow: -3px -7px 23px 2px rgba(133, 131, 132, 0.75);
   -webkit-box-shadow: -3px -7px 23px 2px rgba(136, 132, 134, 0.75);
   -moz-box-shadow: -3px -7px 23px 2px rgba(136, 136, 136, 0.75);
+  transition: box-shadow 0.3s ease;
 }
 
 .slot > *:hover {

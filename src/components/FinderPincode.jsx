@@ -2,6 +2,45 @@ import { useState, useRef } from "react";
 import Slot from "./Slot";
 import axios from "axios";
 const FinderPincode = () => {
+  const [slots, setSlots] = useState([]);
+  const [renderSlot, setRenderSlot] = useState(false);
+  const url = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?`;
+
+  const date = useRef();
+  const pin_code = useRef();
+
+  const findSlots = async (event) => {
+    event.preventDefault();
+
+    const pin_min_msg = "Pin Code must be 6 digits long";
+    try {
+      if (pin_code.current.value.length < 6) throw new Error(pin_min_msg);
+      const data = await axios(
+        url +
+          ("pincode=" +
+            pin_code.current.value +
+            "&date=" +
+            formatDate(date.current.value))
+      );
+
+      if (data.data.sessions.length > 0) {
+        setSlots(data.data.sessions);
+      }
+      try {
+        if (data.data.sessions[0].hasOwnProperty("address")) {
+          setSlots(data.data.sessions);
+        }
+      } catch (error) {
+        if (error.name === "TypeError") setSlots(null);
+      }
+      setRenderSlot(true);
+    } catch (error) {
+      if (error.message === pin_min_msg) alert("Pin must be 6 digits long");
+      else if (error.response.status === 400)
+        alert("Please enter Valid Pin Code");
+    }
+  };
+
   const setDate = () => {
     var today = new Date();
     var dd = today.getDate();
@@ -18,47 +57,14 @@ const FinderPincode = () => {
     return today;
   };
 
-  const [slots, setSlots] = useState([]);
-  const [renderSlot, setRenderSlot] = useState(false);
-  const url = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?`;
-
-  const date = useRef();
-  const pin_code = useRef();
-
-  const findSlots = async (event) => {
-    event.preventDefault();
-    // console.log(formatDate(date.current.value) + ' ' + pin_code.current.value);
-    const pin_min_msg = "Pin Code must be 6 digits long";
-    try {
-      if (pin_code.current.value.length < 6) throw new Error(pin_min_msg);
-      const data = await axios(
-        url +
-          ("pincode=" +
-            pin_code.current.value +
-            "&date=" +
-            formatDate(date.current.value))
-      );
-      console.log(data.data);
-
-      if (data.data.sessions.length > 0) {
-        setSlots(data.data.sessions);
-      }
-      setRenderSlot(true);
-    } catch (error) {
-      if (error.message === pin_min_msg) alert("Pin must be 6 digits long");
-      else if (error.response.status === 400)
-        alert("Please enter Valid Pin Code");
-    }
-  };
-
-  function formatDate(input) {
+  const formatDate = (input) => {
     var datePart = input.match(/\d+/g),
       year = datePart[0].substring(),
       month = datePart[1],
       day = datePart[2];
 
     return day + "-" + month + "-" + year;
-  }
+  };
 
   return (
     <>
