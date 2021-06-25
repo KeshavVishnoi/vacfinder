@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import Slot from "./Slot";
 import axios from "axios";
-const FinderPincode = () => {
+const FinderPincode = ({ isLoading, setIsLoading }) => {
   const [slots, setSlots] = useState([]);
   const [renderSlot, setRenderSlot] = useState(false);
   const url = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?`;
@@ -11,7 +11,7 @@ const FinderPincode = () => {
 
   const findSlots = async (event) => {
     event.preventDefault();
-
+    setIsLoading(true);
     const pin_min_msg = "Pin Code must be 6 digits long";
     try {
       if (pin_code.current.value.length < 6) throw new Error(pin_min_msg);
@@ -39,6 +39,7 @@ const FinderPincode = () => {
       else if (error.response.status === 400)
         alert("Please enter Valid Pin Code");
     }
+    setIsLoading(false);
   };
 
   const setDate = () => {
@@ -98,6 +99,12 @@ const FinderPincode = () => {
           </button>
         </div>
       </form>
+      {isLoading && (
+        <div className="spinner">
+          <div></div>
+          <div></div>
+        </div>
+      )}
       <Slot isData={renderSlot} slots={slots} />
     </>
   );

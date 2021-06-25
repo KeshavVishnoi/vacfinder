@@ -5,11 +5,16 @@ import Footer from "./components/Footer";
 import FinderPincode from "./components/FinderPincode";
 function App() {
   const [button, setButton] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   return (
     <div className="App">
       <NavBar button={button} setButton={setButton} />
       <div className="bga"></div>
-      {button ? <Finder /> : <FinderPincode />}
+      {button ? (
+        <Finder isLoading={isLoading} setIsLoading={setIsLoading} />
+      ) : (
+        <FinderPincode isLoading={isLoading} setIsLoading={setIsLoading} />
+      )}
       <Footer />
     </div>
   );

@@ -3,14 +3,14 @@ import axios from "axios";
 import Axios from "axios";
 import Slot from "./Slot";
 
-const Finder = () => {
+const Finder = ({ isLoading, setIsLoading }) => {
   const [states, setStates] = useState(null);
   const [districts, setDistricts] = useState(null);
   const [district, setDistrict] = useState();
   const [renderSlot, setRenderSlot] = useState(false);
   const [slots, setSlots] = useState([]);
-  const date = useRef();
 
+  const date = useRef();
   useEffect(() => {
     const source = Axios.CancelToken.source();
 
@@ -104,6 +104,7 @@ const Finder = () => {
   }
 
   const findSlots = async (event) => {
+    setIsLoading(true);
     event.preventDefault();
     const finalDate = formatDate(date.current.value); // "18/01/10";
     const data = await axios(
@@ -118,6 +119,7 @@ const Finder = () => {
       if (error.name === "TypeError") setSlots(null);
     }
     setRenderSlot(true);
+    setIsLoading(false);
   };
 
   const setDate = () => {
@@ -181,7 +183,12 @@ const Finder = () => {
           </button>
         </div>
       </form>
-
+      {isLoading && (
+        <div className="spinner">
+          <div></div>
+          <div></div>
+        </div>
+      )}
       {renderSlot && <Slot isData={renderSlot} slots={slots} />}
     </>
   );
