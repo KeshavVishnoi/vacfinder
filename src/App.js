@@ -3,6 +3,7 @@ import Finder from "./components/Finder";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import FinderPincode from "./components/FinderPincode";
+
 function App() {
   const [button, setButton] = useState(true);
   const [isLoading, setIsLoading] = useState(false);

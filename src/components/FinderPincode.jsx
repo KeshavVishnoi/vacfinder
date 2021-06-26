@@ -1,6 +1,8 @@
 import { useState, useRef } from "react";
 import Slot from "./Slot";
 import axios from "axios";
+import { motion } from "framer-motion";
+
 const FinderPincode = ({ isLoading, setIsLoading }) => {
   const [slots, setSlots] = useState([]);
   const [renderSlot, setRenderSlot] = useState(false);
@@ -69,7 +71,12 @@ const FinderPincode = ({ isLoading, setIsLoading }) => {
 
   return (
     <>
-      <form onSubmit={findSlots}>
+      <motion.form
+        animate={{ x: 0 }}
+        initial={{ x: "100vw" }}
+        transition={{ duration: 0.65 }}
+        onSubmit={findSlots}
+      >
         <div className="input-container">
           <h2>Search for a nearby vaccination centre </h2>
 
@@ -98,7 +105,7 @@ const FinderPincode = ({ isLoading, setIsLoading }) => {
             <span className="search-icon"></span> Find Centre By PinCode
           </button>
         </div>
-      </form>
+      </motion.form>
       {isLoading && (
         <div className="spinner">
           <div></div>

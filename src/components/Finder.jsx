@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import Axios from "axios";
 import Slot from "./Slot";
-
+import { motion } from "framer-motion";
 const Finder = ({ isLoading, setIsLoading }) => {
   const [states, setStates] = useState(null);
   const [districts, setDistricts] = useState(null);
@@ -140,7 +140,12 @@ const Finder = ({ isLoading, setIsLoading }) => {
 
   return (
     <>
-      <form onSubmit={findSlots}>
+      <motion.form
+        animate={{ x: 0 }}
+        initial={{ x: "-100vw" }}
+        transition={{ duration: 0.65 }}
+        onSubmit={findSlots}
+      >
         <div className="input-container">
           <h2>Search for a nearby vaccination centre </h2>
 
@@ -182,7 +187,7 @@ const Finder = ({ isLoading, setIsLoading }) => {
             <span className="search-icon"></span> Find Centre By State
           </button>
         </div>
-      </form>
+      </motion.form>
       {isLoading && (
         <div className="spinner">
           <div></div>
